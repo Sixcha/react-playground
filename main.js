@@ -1,4 +1,4 @@
-function Clock(props) {
+/* function Clock(props) {
     React.useEffect(() => {
         tick();
     }, []);
@@ -41,7 +41,7 @@ function Clock(props) {
             <button onClick={changeColor}>Changer couleur</button>
             <button onClick={resetColor}>Réinitialiser couleur</button>
         </div>
-        ); */
+        ); 
 
         // Solution Bonus
 
@@ -55,9 +55,24 @@ function Clock(props) {
             );
 }
 
-ReactDOM.render(<Clock />, document.querySelector('#app'));
+ReactDOM.render(<Clock />, document.querySelector('#app')); */
 
-
-
-
-
+function UserGreeting(props) {
+    return <h1>Bienvenue !</h1>;
+  }
+  
+  function GuestGreeting(props) {
+    return <h1>Veuillez vous inscrire.</h1>;
+  }
+  function Greeting(props) {
+    const isLoggedIn = props.isLoggedIn;
+    if (isLoggedIn) {
+      return <UserGreeting />;
+    }
+    return <GuestGreeting />;
+  }
+  
+  ReactDOM.render(
+    <Greeting isLoggedIn={false} />,
+    document.getElementById('root')
+  );
