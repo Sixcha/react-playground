@@ -65,14 +65,14 @@ function UserGreeting(props) {
     return <h1>Veuillez vous inscrire.</h1>;
   }
   function Greeting(props) {
-    const isLoggedIn = props.isLoggedIn;
-    if (isLoggedIn) {
+    const [loggedIn , setLoggedIn] = React.useState(false);
+    if (loggedIn) {
       return <UserGreeting />;
     }
     return <GuestGreeting />;
   }
   
   ReactDOM.render(
-    <Greeting isLoggedIn={false} />,
-    document.getElementById('root')
+    <Greeting setLoggedIn={false} />,
+    document.getElementById('app')
   );
